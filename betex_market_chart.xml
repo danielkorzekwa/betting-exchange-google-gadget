@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="hello world example" /> 
-  <Content type="html">
+	<ModulePrefs title="Betting Exchange Market Chart" title_url="https://code.google.com/p/betting-exchange-google-gadget/"
+		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com" />
+	<Content type="html">
      <![CDATA[ 
-       Hello, world!
+      Under construction...
      ]]>
-  </Content> 
+	</Content>
 </Module>
