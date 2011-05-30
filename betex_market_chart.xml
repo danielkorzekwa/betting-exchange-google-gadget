@@ -6,10 +6,7 @@
 	<Content type="html">
      <![CDATA[ 
     	<div id="content_div"></div>
-        <script type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart.js"/>
-        <script type="text/javascript">
-        	gadgets.util.registerOnLoadHandler(displayGreeting);
-        </script>      
+        <script type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart.js"/>  
      ]]>
 	</Content>
 </Module>
