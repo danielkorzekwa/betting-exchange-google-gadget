@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="Betting Exchange Market Chart" title_url="https://code.google.com/p/betting-exchange-google-gadget/"
+	<ModulePrefs title="Betting Exchange Market Chart"
+		title_url="https://code.google.com/p/betting-exchange-google-gadget/"
 		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com" />
 	<Content type="html">
      <![CDATA[ 
-      Under construction...
+     dddddddd
+        <script type="text/javascript">
+ 
+   function displayGreeting () {
+   alert("sss")
+document.getElementById('content_div').innerHTML="RED";
+   }
+   // Pass the userprefs for this module instance to the function
+   // (allows users to include multiple module instances on their page)
+   gadgets.util.registerOnLoadHandler(displayGreeting); 
+  
+   </script> 
      ]]>
 	</Content>
 </Module>
