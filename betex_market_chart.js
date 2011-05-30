@@ -1,5 +1,3 @@
-function displayGreeting() {
-	document.getElementById('content_div').innerHTML = "Under construction...";
+function displayGreeting(contentDiv) {
+	document.getElementById(contentDiv).innerHTML = "Under construction....";
 }
-
-gadgets.util.registerOnLoadHandler(displayGreeting);
