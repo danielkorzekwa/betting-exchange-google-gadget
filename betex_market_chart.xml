@@ -5,9 +5,8 @@
 		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com" />
 	<Content type="html">
      <![CDATA[ 
-    <div id="content_div"></div>
-        <script type="text/javascript" scr="betex_market_chart.xml">
-   </script> 
+    	<div id="content_div"></div>
+        <script type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart.js"/>
      ]]>
 	</Content>
 </Module>
