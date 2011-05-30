@@ -6,7 +6,7 @@
 	<Content type="html">
      <![CDATA[ 
     <div id="content_div"></div>
-        <script type="text/javascript">
+        <script type="text/javascript" scr="betex_market_chart.xml">
  
    function displayGreeting () {
    alert("sss")
