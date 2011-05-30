@@ -5,12 +5,12 @@
 		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com" />
 	<Content type="html">
      <![CDATA[ 
-     dddddddd
+    <div id="content_div"></div>
         <script type="text/javascript">
  
    function displayGreeting () {
    alert("sss")
-document.getElementById('content_div').innerHTML="RED";
+document.getElementById('content_div').innerHTML="BLUE";
    }
    // Pass the userprefs for this module instance to the function
    // (allows users to include multiple module instances on their page)
