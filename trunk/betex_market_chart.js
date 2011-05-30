@@ -1,3 +1,3 @@
 function displayGreeting() {
-	document.getElementById("content_div").innerHTML = "Under construction....";
+	document.getElementById('content_div').innerHTML = "Under construction....";
 }
