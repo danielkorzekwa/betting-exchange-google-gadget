@@ -7,15 +7,6 @@
      <![CDATA[ 
     <div id="content_div"></div>
         <script type="text/javascript" scr="betex_market_chart.xml">
- 
-   function displayGreeting () {
-   alert("sss")
-document.getElementById('content_div').innerHTML="BLUE";
-   }
-   // Pass the userprefs for this module instance to the function
-   // (allows users to include multiple module instances on their page)
-   gadgets.util.registerOnLoadHandler(displayGreeting); 
-  
    </script> 
      ]]>
 	</Content>
