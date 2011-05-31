@@ -6,7 +6,7 @@ function start(msg) {
 function getHtml() {
 	var params = {};
 	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-	var url = "http://google.com";
+	var url = "http://uk-api.betfair.com/www/sports/exchange/readonly/v1.0/allmarkets?alt=json&currencyCode=GBP&locale=en_GB&types=EVENT,MARKET_DESCRIPTION,MARKET_STATE&marketBettingTypes=ODDS&maxResults=5";
 	gadgets.io.makeRequest(url, response, params);
 };
 function response(obj) {
