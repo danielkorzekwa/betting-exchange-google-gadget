@@ -2,11 +2,23 @@
 <Module>
 	<ModulePrefs title="Betting Exchange Market Chart"
 		title_url="https://code.google.com/p/betting-exchange-google-gadget/"
-		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com" />
-	<Content type="html">
-     <![CDATA[ 
-    	<div id="content_div"></div>
-        <script type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart.js"/>  
-     ]]>
-	</Content>
+		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com">
+		<Require feature="minimessage" />
+	</ModulePrefs>
+
+	<Content type="html" view="home"><![CDATA[
+
+		<div id="content_div"></div>
+		<script type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/home.js"></script>
+		<script type="text/javascript">
+			function init() {
+				var msg = new gadgets.MiniMessage(__MODULE_ID__);
+ 				msg.createDismissibleMessage("init"); 
+ 				start(msg);
+			}
+		gadgets.util.registerOnLoadHandler(init);
+</script>
+
+
+  ]]></Content>
 </Module>
