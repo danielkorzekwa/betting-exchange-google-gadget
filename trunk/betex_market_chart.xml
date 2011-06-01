@@ -3,22 +3,25 @@
 	<ModulePrefs title="Betting Exchange Market Chart"
 		title_url="https://code.google.com/p/betting-exchange-google-gadget/"
 		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com">
-		<Require feature="minimessage" />
+		<Require feature="dynamic-height"/>
 	</ModulePrefs>
 
 	<Content type="html" view="home"><![CDATA[
 
-		<div id="content_div"></div>
-		<script type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/home.js"></script>
 		<script type="text/javascript">
-			function init() {
-				var msg = new gadgets.MiniMessage(__MODULE_ID__);
- 				msg.createDismissibleMessage("init"); 
- 				start(msg);
+			//If application is in a development mode then load javascript from localhost.
+			if(window.location.hostname	 == 'localhost')
+   				document.write('<script type="text/javascript" src="http://localhost:8123/betex-google-gadget/home.js"><\/script>');
+ 			else {
+  				document.write('<script type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/home.js"><\/script>');
 			}
-		gadgets.util.registerOnLoadHandler(init);
-</script>
-
+		</script>
+		
+		<form name="marketIdForm" action="javascript:void(0);" method="GET">
+			Market Id: <input type="text" name="marketIdInput" value="102907709"/>
+			<input type="submit" value="Submit" onClick="init(this.form)"/>
+		</form>
+		<div id="chart_div">Please enter market id.</div>
 
   ]]></Content>
 </Module>
