@@ -1,7 +1,7 @@
 var interval
 var marketId = ""
 var marketName = ""
-	
+
 // Read a page's GET URL variables and return them as an associative array.
 function init(form) {
 	clearInterval(interval)
@@ -33,15 +33,31 @@ function marketDetailsResponse(obj) {
 };
 
 function refreshMarketChart() {
-	
+
 	var params = {};
 	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 	var url = "http://uk-api.betfair.com/www/sports/exchange/readonly/v1.0/bymarket?marketIds=1."
-			+ marketId + "&types=RUNNER_EXCHANGE_PRICES_BEST&alt=json&nocache=0";
-	gadgets.io.makeRequest(url, marketPricesResponse, params);
-	
+			+ marketId
+			+ "&types=RUNNER_EXCHANGE_PRICES_BEST&alt=json";
+	makeCachedRequest(url, marketPricesResponse, params, 0);
+
 	function marketPricesResponse(obj) {
-		document.getElementById('chart_div').innerHTML = marketName + "</br></br>" + new Date().toLocaleTimeString() + "</br></br>" + obj.text;
+		document.getElementById('chart_div').innerHTML = marketName
+				+ "</br></br>" + new Date().toLocaleTimeString() + "</br></br>"
+				+ obj.text;
 		gadgets.window.adjustHeight();
 	}
+}
+
+function makeCachedRequest(url, callback, params, refreshInterval) {
+	var ts = new Date().getTime();
+	var sep = "?";
+	if (refreshInterval && refreshInterval > 0) {
+		ts = Math.floor(ts / (refreshInterval * 1000));
+	}
+	if (url.indexOf("?") > -1) {
+		sep = "&";
+	}
+	url = [ url, sep, "nocache=", ts ].join("");
+	gadgets.io.makeRequest(url, callback, params);
 }
