@@ -31,7 +31,7 @@
   
 function drawVisualization() {
      
-          annotatedtimeline.draw(data, {  'displayRangeSelector' : false,
+          annotatedtimeline.draw(data, {  'displayRangeSelector' : false, 'allowRedraw' : true,
           'zoomStartTime': new Date(2008, 1 ,1,12,44,05), //NOTE: month 1 = Feb (javascript to blame)
                                 'zoomEndTime': data.getValue(data.getNumberOfRows()-1,0) //NOTE: month 1 = Feb (javascript to blame)
           });
