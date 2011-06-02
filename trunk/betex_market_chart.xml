@@ -31,6 +31,6 @@
 			<input type="submit" value="Submit" onClick="init(this.form)"/>
 		</form>
 		<div id="chart_div">Please enter market id.</div>
- <div id="visualization" style="width: 700px; height: 300px;"></div>
+ <div id="visualization" style="width: 280px; height: 200px;"></div>
   ]]></Content>
 </Module>
