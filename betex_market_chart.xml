@@ -7,21 +7,30 @@
 	</ModulePrefs>
 
 	<Content type="html" view="home"><![CDATA[
-
+ <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['gauge']});
+      google.load('visualization', '1', {packages: ['annotatedtimeline']});
+    </script>
+   
 		<script type="text/javascript">
 			//If application is in a development mode then load javascript from localhost.
+			var baseUrl = ""
 			if(window.location.hostname	 == 'localhost')
-   				document.write('<script type="text/javascript" src="http://localhost:8123/betex-google-gadget/home.js"><\/script>');
+   				baseUrl = "localhost:8123/betex-google-gadget"
  			else {
-  				document.write('<script type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/home.js"><\/script>');
+ 				bseUrl = "betting-exchange-google-gadget.googlecode.com/svn/trunk"
 			}
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/home.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betfairapi.js"><\/script>');
+			
 		</script>
 		
 		<form name="marketIdForm" action="javascript:void(0);" method="GET">
-			Market Id: <input type="text" name="marketIdInput" value="102907709"/>
+			Market Id: <input type="text" name="marketIdInput" value="102215557"/>
 			<input type="submit" value="Submit" onClick="init(this.form)"/>
 		</form>
 		<div id="chart_div">Please enter market id.</div>
-
+ <div id="visualization" style="width: 700px; height: 300px;"></div>
   ]]></Content>
 </Module>

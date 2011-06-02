@@ -1,3 +1,49 @@
+  var annotatedtimeline
+  
+  function initVis() {
+	  annotatedtimeline = new google.visualization.AnnotatedTimeLine(
+	          document.getElementById('visualization'));
+  }
+  
+  var data = new google.visualization.DataTable();
+  data.addColumn('date', 'Date');
+  data.addColumn('number', 'Sold Pencils');
+  data.addColumn('number', 'Sold Pens');
+  data.addRows(6);
+  data.setValue(0, 0, new Date(2008, 1 ,1,12,45,00));
+  data.setValue(0, 1, 30000);
+  data.setValue(0, 2, 40645);
+  data.setValue(1, 0, new Date(2008, 1 ,1,12,45,01));
+  data.setValue(1, 1, 14045);
+  data.setValue(1, 2, 20374);
+  data.setValue(2, 0, new Date(2008, 1 ,1,12,45,02));
+  data.setValue(2, 1, 55022);
+  data.setValue(2, 2, 50766);
+  data.setValue(3, 0, new Date(2008, 1 ,1,12,45,03));
+  data.setValue(3, 1, 75284);
+  data.setValue(3, 2, 14334);
+  data.setValue(4, 0, new Date(2008, 1 ,1,12,45,04));
+  data.setValue(4, 1, 41476);
+  data.setValue(4, 2, 66467);
+  data.setValue(5, 0, new Date(2008, 1 ,1,12,45,05));
+  data.setValue(5, 1, 33322);
+  data.setValue(5, 2, 39463);
+  
+function drawVisualization() {
+     
+          annotatedtimeline.draw(data, {  'displayRangeSelector' : false,
+          'zoomStartTime': new Date(2008, 1 ,1,12,44,05), //NOTE: month 1 = Feb (javascript to blame)
+                                'zoomEndTime': data.getValue(data.getNumberOfRows()-1,0) //NOTE: month 1 = Feb (javascript to blame)
+          });
+    }
+
+google.setOnLoadCallback(initVis);
+
+function updateChartWithData() {
+	data.insertRows(data.getNumberOfRows(),[[new Date(2008, 1 ,1,12,45,data.getNumberOfRows()),70000,60000]]);
+	drawVisualization()
+}
+
 var interval
 var marketId = ""
 var marketName = ""
@@ -24,7 +70,7 @@ function marketDetailsResponse(obj) {
 						.split(":00")[0] + " "
 				+ eventNode.marketNodes[0].description.marketName
 
-		refreshMarketChart()
+	
 		interval = setInterval("refreshMarketChart()", 1000);
 
 	} else {
@@ -33,31 +79,13 @@ function marketDetailsResponse(obj) {
 };
 
 function refreshMarketChart() {
-
-	var params = {};
-	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
-	var url = "http://uk-api.betfair.com/www/sports/exchange/readonly/v1.0/bymarket?marketIds=1."
-			+ marketId
-			+ "&types=RUNNER_EXCHANGE_PRICES_BEST&alt=json";
-	makeCachedRequest(url, marketPricesResponse, params, 0);
-
-	function marketPricesResponse(obj) {
-		document.getElementById('chart_div').innerHTML = marketName
-				+ "</br></br>" + new Date().toLocaleTimeString() + "</br></br>"
-				+ obj.text;
-		gadgets.window.adjustHeight();
-	}
+	var newMarketData = getMarketPrices(marketId,marketPricesResponse);
+	updateChartWithData(newMarketData);
 }
 
-function makeCachedRequest(url, callback, params, refreshInterval) {
-	var ts = new Date().getTime();
-	var sep = "?";
-	if (refreshInterval && refreshInterval > 0) {
-		ts = Math.floor(ts / (refreshInterval * 1000));
-	}
-	if (url.indexOf("?") > -1) {
-		sep = "&";
-	}
-	url = [ url, sep, "nocache=", ts ].join("");
-	gadgets.io.makeRequest(url, callback, params);
+function marketPricesResponse(obj) {
+	document.getElementById('chart_div').innerHTML = marketName
+			+ "</br></br>" + new Date().toLocaleTimeString() + "</br></br>"
+			+ obj.text;
+	gadgets.window.adjustHeight();
 }
