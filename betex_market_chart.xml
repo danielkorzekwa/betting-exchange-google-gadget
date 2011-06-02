@@ -19,7 +19,7 @@
 			if(window.location.hostname	 == 'localhost')
    				baseUrl = "localhost:8123/betex-google-gadget"
  			else {
- 				bseUrl = "betting-exchange-google-gadget.googlecode.com/svn/trunk"
+ 				baseUrl = "betting-exchange-google-gadget.googlecode.com/svn/trunk"
 			}
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/home.js"><\/script>');
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betfairapi.js"><\/script>');
