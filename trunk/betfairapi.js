@@ -1,3 +1,11 @@
+function getMarketDetails(marketId,callback) {
+	var params = {};
+	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+	var url = "http://uk-api.betfair.com/www/sports/exchange/readonly/v1.0/bymarket?marketIds=1."
+			+ marketId + "&types=EVENT,MARKET_DESCRIPTION,RUNNER_DESCRIPTION&alt=json";
+	gadgets.io.makeRequest(url, callback, params,0);
+}
+
 function getMarketPrices(marketId,callback) {
 	var params = {};
 	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
