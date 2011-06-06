@@ -11,7 +11,6 @@
         <EnumValue value="Probability" />
 	</UserPref>
 	<Content type="html" view="home"><![CDATA[
- 		<link href="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/layout.css" rel="stylesheet" type="text/css"> 
     	<script language="javascript" type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/jquery.js"></script> 
     	<script language="javascript" type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/jquery.flot.js"></script> 
  		
