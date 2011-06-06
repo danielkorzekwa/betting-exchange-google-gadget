@@ -5,13 +5,17 @@
 		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com">
 		<Require feature="dynamic-height"/>
 	</ModulePrefs>
-
+	<UserPref name="time_window_sec" default_value="600"/>
+	<UserPref name="data" default_value="Price" datatype="enum" >
+        <EnumValue value="Price" />
+        <EnumValue value="Probability" />
+	</UserPref>
 	<Content type="html" view="home"><![CDATA[
- 		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-		<script type="text/javascript">
-			google.load('visualization', '1', {packages: ['gauge']});
-      		google.load('visualization', '1', {packages: ['annotatedtimeline']});
-		
+ 		<link href="layout.css" rel="stylesheet" type="text/css"> 
+    	<script language="javascript" type="text/javascript" src="jquery.js"></script> 
+    	<script language="javascript" type="text/javascript" src="jquery.flot.js"></script> 
+ 		
+		<script type="text/javascript">		
 			//If application is in a development mode then load javascript from localhost.
 			var baseUrl = ""
 			if(window.location.hostname	 == 'localhost')
@@ -24,10 +28,10 @@
 		</script>
 		
 		<form name="marketIdForm" action="javascript:void(0);" method="GET">
-			Market Id: <input type="text" name="marketIdInput" value="102215557"/>
+			Market Id: <input type="text" name="marketIdInput" value=""/>
 			<input type="submit" value="Submit" onClick="init(this.form)"/>
 		</form>
 		<div id="chart_header_div">Please enter market id.</div>
- 		<div id="chart_body_div" style="width: 100%; height: 400px;"></div>
+ 		<div id="chart_body_div" style="width: 100%; height: 300px;"></div>
   ]]></Content>
 </Module>
