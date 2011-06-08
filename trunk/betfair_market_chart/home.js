@@ -31,7 +31,7 @@ function init(form) {
 			refreshMarketChartTask()
 			interval = setInterval("refreshMarketChartTask()", 1000);
 		} else {
-			document.getElementById('chart_header_div').innerHTML = "market not found"
+			document.getElementById('chart_header_div').innerHTML = "Market not found."
 		}
 	}
 }
