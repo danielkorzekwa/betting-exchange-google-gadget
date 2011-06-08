@@ -4,7 +4,7 @@
 		title_url="https://code.google.com/p/betting-exchange-google-gadget/"
 		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com" 
 		screenshot="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betfair_market_chart/screenshot.png"
-		thumbnail=http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betfair_market_chart/thumbnail.png>
+		thumbnail="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betfair_market_chart/thumbnail.png">
 		<Require feature="dynamic-height"/>
 	</ModulePrefs>
 	<UserPref name="time_window_sec" default_value="600"/>
