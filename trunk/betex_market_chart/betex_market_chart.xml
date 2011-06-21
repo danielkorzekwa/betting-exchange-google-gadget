@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="Betfair Market Chart"
+	<ModulePrefs title="Betex Market Chart"
 		title_url="https://code.google.com/p/betting-exchange-google-gadget/"
-		description="This gadget presents a real time chart for a Betfair Betting Exchange market"
+		description="This gadget presents a real time chart for a Betex Betting Exchange market (http://betex.danmachine.com)"
 		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com" 
-		screenshot="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betfair_market_chart/screenshot.png"
-		thumbnail="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betfair_market_chart/thumbnail.png">
+		screenshot="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart/screenshot.png"
+		thumbnail="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart/thumbnail.png">
 		<Require feature="dynamic-height"/>
 	</ModulePrefs>
 	<UserPref name="time_window_sec" default_value="600"/>
@@ -23,7 +23,8 @@
 			Betfair chart data is delayed.<br/><br/>
 			More information at<br/> 
 			- http:/blog.danmachine.com<br/>
-			- http://code.google.com/p/betting-exchange-google-gadget </br>
+			- http://code.google.com/p/betting-exchange-google-gadget<br/>
+			- http:/betex.danmachine.com
 		</div>
  		<div id="chart_body_div" style="width: 100%; height: 300px;"></div>
     	
@@ -34,12 +35,12 @@
 			//If application is in a development mode then load javascript from localhost.
 			var baseUrl = ""
 			if(window.location.hostname	 == 'localhost')
-   				baseUrl = "localhost:8123/betex-google-gadget/betfair_market_chart"
+   				baseUrl = "localhost:8123/betex-google-gadget/betex_market_chart"
  			else {
- 				baseUrl = "betting-exchange-google-gadget.googlecode.com/svn/trunk/betfair_market_chart"
+ 				baseUrl = "betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart"
 			}
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/home.js"><\/script>');
-			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betfairapi.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betexapi.js"><\/script>');
 			
 			gadgets.window.adjustHeight()
 		</script>
