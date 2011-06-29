@@ -2,7 +2,7 @@ function getMarketDetails(marketId,callback) {
 	var params = {};
 	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 	var url = "http://betex.danmachine.com/getMarket?marketId=" + marketId
-	gadgets.io.makeRequest(url, callback, params,0);
+	makeCachedRequest(url, callback, params,0);
 }
 
 function getMarketPrices(marketId,callback) {
