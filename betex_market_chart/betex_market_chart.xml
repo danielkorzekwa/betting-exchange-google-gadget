@@ -3,7 +3,7 @@
 	<ModulePrefs title="Betex Market Chart"
 		title_url="https://code.google.com/p/betting-exchange-google-gadget/"
 		description="This gadget presents a real time chart for a Betex Betting Exchange market (http://betex.danmachine.com)"
-		height="200" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com" 
+		height="400" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com" 
 		screenshot="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart/screenshot.png"
 		thumbnail="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart/thumbnail.png">
 		<Require feature="dynamic-height"/>
@@ -25,7 +25,7 @@
 			- http://code.google.com/p/betting-exchange-google-gadget<br/>
 			- http:/betex.danmachine.com
 		</div>
- 		<div id="chart_body_div" style="width: 100%; height: 300px;"></div>
+ 		<div id="chart_body_div" style="width: 100%; height: 400px;"></div>
     	
     	<script language="javascript" type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/lib/jquery.js"></script> 
     	<script language="javascript" type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/lib/jquery.flot.js"></script> 
