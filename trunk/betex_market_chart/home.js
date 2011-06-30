@@ -67,11 +67,14 @@ function updateMarketData(marketNode, now) {
 		if (marketNode.marketPrices[i].bestToBackPrice) {
 			value = marketNode.marketPrices[i].bestToBackPrice
 			if (prefs.getString("data") == "Probability") {
-				value = (1 / value).toFixed(2)
+				value = (1 / value)
 			}
 		} else
 			value = 0
-		data[i].label = data[i].label.split(": ")[0] + ": " + value
+			
+		var valueLabel = value
+		if (prefs.getString("data") == "Probability") valueLabel = value.toFixed(3)
+		data[i].label = data[i].label.split(": ")[0] + ": " + valueLabel
 
 		// remove old data
 		for (index in data[i].data) {
