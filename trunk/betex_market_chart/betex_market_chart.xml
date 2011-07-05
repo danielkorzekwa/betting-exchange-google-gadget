@@ -9,10 +9,6 @@
 		<Require feature="dynamic-height"/>
 	</ModulePrefs>
 	<UserPref name="time_window_sec" default_value="600"/>
-	<UserPref name="data" default_value="Price" datatype="enum" >
-        <EnumValue value="Price" />
-        <EnumValue value="Probability" />
-	</UserPref>
 	<Content type="html" view="home"><![CDATA[
     	<form name="marketIdForm" action="javascript:void(0);" method="GET">
 			Market Id: <input type="text" name="marketIdInput" value=""/>
@@ -38,8 +34,11 @@
  			else {
  				baseUrl = "betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart"
 			}
-			document.write('<script type="text/javascript" src="http://' + baseUrl + '/home.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/time_window_chart.js"><\/script>');
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betexapi.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/home.js"><\/script>');
+			
+			
 			
 			gadgets.window.adjustHeight()
 		</script>
