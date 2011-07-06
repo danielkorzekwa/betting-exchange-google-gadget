@@ -14,6 +14,7 @@
 			Market Id: <input type="text" name="marketIdInput" value=""/>
 			<input type="submit" value="Submit" onClick="init(this.form)"/>
 		</form>
+
 		<div id="chart_header_div">
 			Use Google Chrome for this gadget.<br/><br/>
 			More information at<br/> 
@@ -37,12 +38,9 @@
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/time_window_chart.js"><\/script>');
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betexapi.js"><\/script>');
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/home.js"><\/script>');
-			
-			
-			
+				
 			gadgets.window.adjustHeight()
 		</script>
 		
-	
   ]]></Content>
 </Module>
