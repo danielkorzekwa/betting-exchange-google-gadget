@@ -5,10 +5,11 @@ function getMarketDetails(marketId,callback) {
 	makeCachedRequest(url, callback, params,0);
 }
 
-function getMarketProbability(marketId,callback) {
+function getMarketProbability(marketId,callback,probType) {
 	var params = {};
 	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 	var url = "http://betex.danmachine.com/getMarketProbability?marketId=" + marketId
+	if(probType) url += "&probType=" + probType
 	makeCachedRequest(url, callback, params, 0);
 }
 

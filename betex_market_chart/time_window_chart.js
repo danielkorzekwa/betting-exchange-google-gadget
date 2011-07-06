@@ -61,6 +61,13 @@ TimeWindowChart.prototype.clear = function() {
 	this.data = []
 }
 
+/** Remove all time series values from a chart. */
+TimeWindowChart.prototype.clearValues = function() {
+	for(i in this.data) {
+		this.data[i].data = []
+	}
+}
+
 /**
  * Plot chart to a div element provided to constructor of this chart.
  * 
