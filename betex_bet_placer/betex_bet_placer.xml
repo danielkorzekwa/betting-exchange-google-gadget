@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="Betex Bet Placer"
+		title_url="https://code.google.com/p/betting-exchange-google-gadget/"
+		description="This gadget provides a betting inteface for a Betex Betting Exchange market (http://betex.danmachine.com)"
+		height="400" author="Daniel Korzekwa" author_email="daniel.korzekwa@gmail.com"
+		screenshot="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_bet_placer/screenshot.png"
+		thumbnail="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_bet_placer/thumbnail.png">
+		<Require feature="dynamic-height" />
+	</ModulePrefs>
+	<UserPref name="time_window_sec" default_value="600" />
+	<Content type="html" view="home"><![CDATA[
+    	
+    	<!--UI layout.-->
+    	
+    	<form name="marketIdForm" action="javascript:void(0);" method="GET">
+			Market Id: <input type="text" name="marketIdInput" value=""/>
+			<input type="submit" value="Submit" onClick="BetPlacerGadget.init(this.form)"/>
+		</form>
+
+		<div id="bet_placer_header_div">
+			Use Google Chrome for this gadget.<br/><br/>
+			More information at<br/> 
+			- http:/blog.danmachine.com<br/>
+			- http://code.google.com/p/betting-exchange-google-gadget<br/>
+			- http:/betex.danmachine.com
+		</div>
+ 		<div id="bet_placer_widget_div"></div>
+    	
+    	<!-- Java scripts -->
+    	
+		<script type="text/javascript">		
+			//If application is in a development mode then load javascript from localhost.
+			var baseUrl = ""
+			if(window.location.hostname	 == 'localhost')
+   				baseUrl = "localhost:8123/betex-google-gadget"
+ 			else {
+ 				baseUrl = "betting-exchange-google-gadget.googlecode.com/svn/trunk"
+			}
+			
+			//css styles
+			document.write('<style type="text/css">@import url("http://' + baseUrl + '/lib/datatables/css/demo_page.css");</style>');
+			document.write('<style type="text/css">@import url("http://' + baseUrl + '/lib/datatables/css/demo_table.css");</style>');
+			
+			//js libraries
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/lib/jquery.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/lib/datatables/js/jquery.dataTables.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/mylib/betexapi.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betex_bet_placer/home.js"><\/script>');
+			
+			gadgets.window.adjustHeight()
+		</script>				
+  ]]></Content>
+</Module>

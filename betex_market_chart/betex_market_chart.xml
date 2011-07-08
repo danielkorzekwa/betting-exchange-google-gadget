@@ -12,7 +12,7 @@
 	<Content type="html" view="home"><![CDATA[
     	<form name="marketIdForm" action="javascript:void(0);" method="GET">
 			Market Id: <input type="text" name="marketIdInput" value=""/>
-			<input type="submit" value="Submit" onClick="init(this.form)"/>
+			<input type="button" value="Submit" onClick="init(this.form)"/>
 		</form>
 
 		<div id="chart_header_div">
@@ -23,22 +23,21 @@
 			- http:/betex.danmachine.com
 		</div>
  		<div id="chart_body_div" style="width: 100%; height: 400px;"></div>
-    	
-    	<script language="javascript" type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/lib/jquery.js"></script> 
-    	<script language="javascript" type="text/javascript" src="http://betting-exchange-google-gadget.googlecode.com/svn/trunk/lib/jquery.flot.js"></script> 
- 		
+    	 		
 		<script type="text/javascript">		
 			//If application is in a development mode then load javascript from localhost.
 			var baseUrl = ""
 			if(window.location.hostname	 == 'localhost')
-   				baseUrl = "localhost:8123/betex-google-gadget/betex_market_chart"
+   				baseUrl = "localhost:8123/betex-google-gadget"
  			else {
- 				baseUrl = "betting-exchange-google-gadget.googlecode.com/svn/trunk/betex_market_chart"
+ 				baseUrl = "betting-exchange-google-gadget.googlecode.com/svn/trunk"
 			}
-			document.write('<script type="text/javascript" src="http://' + baseUrl + '/time_window_chart.js"><\/script>');
-			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betexapi.js"><\/script>');
-			document.write('<script type="text/javascript" src="http://' + baseUrl + '/home.js"><\/script>');
-				
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/lib/jquery.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/lib/jquery.flot.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/mylib/betexapi.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betex_market_chart/time_window_chart.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betex_market_chart/home.js"><\/script>');
+			
 			gadgets.window.adjustHeight()
 		</script>
 		
