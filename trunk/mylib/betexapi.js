@@ -13,6 +13,13 @@ function getMarketProbability(marketId,callback,probType) {
 	makeCachedRequest(url, callback, params, 0);
 }
 
+function getMarketPrices(marketId,callback) {
+	var params = {};
+	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+	var url = "http://betex.danmachine.com/getBestPrices?marketId="+ marketId
+	makeCachedRequest(url, callback, params, 0);
+}
+
 function makeCachedRequest(url, callback, params, refreshInterval) {
 	var ts = new Date().getTime();
 	var sep = "?";
