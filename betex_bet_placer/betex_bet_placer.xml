@@ -46,6 +46,7 @@
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/lib/jquery.js"><\/script>');
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/lib/datatables/js/jquery.dataTables.js"><\/script>');
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/mylib/betexapi.js"><\/script>');
+			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betex_bet_placer/bet_placer_widget.js"><\/script>');
 			document.write('<script type="text/javascript" src="http://' + baseUrl + '/betex_bet_placer/home.js"><\/script>');
 			
 			gadgets.window.adjustHeight()
