@@ -2,14 +2,15 @@ function BetPlacerWidget(widgetDivId) {
 	this.widgetDivId = widgetDivId
 }
 
-BetPlacerWidget.prototype.refresh = function(marketDataJson, marketPricesJson) {
+BetPlacerWidget.prototype.refresh = function(marketDataJson, marketPricesJson,riskJson) {
 	var runners = []
 	for (i in marketDataJson.runners) {
 		var runner = marketDataJson.runners[i]
-		runners[i] = [ runner.runnerName, i ]
+		runners[i] = [ runner.runnerName + ': ' + riskJson.runnerIfwins[i].ifWin, i ]
 	}
 		
 	$(this.widgetDivId).html(
+			'</br>MarketExpectedProfit: ' + riskJson.marketExpectedProfit + '</br>' + 
 			'<table cellpadding="0" cellspacing="0" border="0" class="display" id="bet_placer_widget_table"></table>');
 	$('#bet_placer_widget_table').dataTable(
 			{
@@ -30,9 +31,9 @@ BetPlacerWidget.prototype.refresh = function(marketDataJson, marketPricesJson) {
 
 								var bestPrices = marketPricesJson.marketPrices[runnerIndex]
 								 
-								function createBetPlacement(price,betType,runnerId) {
-									var size = 2
-									return 'BetPlacerGadget.placeBet(' + price + ',' + size + ',\'' + betType + '\'' + ',' + bestPrices.runnerId + ')'
+								function createBetPlacement(betPrice,betType,runnerId) {
+									var betSize = 2
+									return 'BetPlacerGadget.placeBet(' + betSize + ',' + betPrice + ',\'' + betType + '\'' + ',' + marketDataJson.marketId + ',' + bestPrices.runnerId + ')'
 								}
 								var betButtons = '<input type="button" value="' + bestPrices.bestToBackPrice
 										+ '" onClick="' + createBetPlacement(bestPrices.bestToBackPrice,"BACK") + '"/>' + '<input type="submit" value="'
