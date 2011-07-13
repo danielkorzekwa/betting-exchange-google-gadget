@@ -20,6 +20,21 @@ function getMarketPrices(marketId,callback) {
 	makeCachedRequest(url, callback, params, 0);
 }
 
+function getRisk(userId,marketId,callback) {
+	var params = {};
+	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+	var url = "http://betex.danmachine.com/getRisk?userId=" + userId + "&marketId=" + marketId
+	makeCachedRequest(url, callback, params, 0);
+}
+
+function placeBet(userId,betSize,betPrice,betType,marketId,runnerId,callback) {
+	var params = {};
+	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+	var url = "http://betex.danmachine.com/placeBet?userId=" + userId + "&betSize=" + betSize + "&betPrice=" + betPrice + "&betType=" + betType + "&marketId=" + marketId + "&runnerId=" + runnerId
+	makeCachedRequest(url, callback, params, 0);
+}
+
+
 function makeCachedRequest(url, callback, params, refreshInterval) {
 	var ts = new Date().getTime();
 	var sep = "?";
