@@ -1,12 +1,11 @@
 var BetPlacerGadget = {
 
-	userId : 100,
+	userId : Math.floor(Math.random() * (Math.pow(2, 31) - 1)),
 	betPlacerWidget : null,
 	refreshBetPlacerTask : null,
 	marketId : null,
 
 	init : function(form) {
-
 		this.betPlacerWidget = new BetPlacerWidget('#bet_placer_widget_div');
 		this.marketId = form.marketIdInput.value
 		clearInterval(this.refreshBetPlacerTask)
@@ -47,7 +46,7 @@ var BetPlacerGadget = {
 				document.getElementById('bet_placer_header_div').innerHTML = marketName
 
 				/** Set market body. */
-				BetPlacerGadget.betPlacerWidget.refresh(marketDataJson, marketPricesJson,riskJson)
+				BetPlacerGadget.betPlacerWidget.refresh(marketDataJson, marketPricesJson, riskJson)
 
 			} else {
 				document.getElementById('bet_placer_header_div').innerHTML = "Market not found."
@@ -67,6 +66,10 @@ var BetPlacerGadget = {
 		}
 		placeBet(this.userId, betSize, betPrice, betType, marketId, runnerId, betCallback)
 		this.refresh()
+	},
+
+	hedge : function(marketId, runnerId) {
+		hedge(this.userId, marketId, runnerId)
 	}
 }
 
