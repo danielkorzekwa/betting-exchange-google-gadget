@@ -34,6 +34,13 @@ function placeBet(userId,betSize,betPrice,betType,marketId,runnerId,callback) {
 	makeCachedRequest(url, callback, params, 0);
 }
 
+function hedge(userId,marketId,runnerId,callback) {
+	var params = {};
+	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+	var url = "http://betex.danmachine.com/hedge?userId=" + userId + "&marketId=" + marketId + "&runnerId=" + runnerId
+	makeCachedRequest(url, callback, params, 0);
+}
+
 
 function makeCachedRequest(url, callback, params, refreshInterval) {
 	var ts = new Date().getTime();
